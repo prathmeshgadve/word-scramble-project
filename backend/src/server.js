@@ -20,8 +20,11 @@ const app = express();
 // Body parser middleware
 app.use(express.json());
 
-// Enable CORS
-app.use(cors());
+const corsOptions = {
+  origin: 'https://word-scramble-frontend.vercel.app', // <-- PASTE YOUR VERCEL URL HERE
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 
 // A simple test route
 app.get('/', (req, res) => {
